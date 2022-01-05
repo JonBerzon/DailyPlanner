@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    
     #figvaper
 
     attr_reader :password
@@ -9,8 +10,8 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
 
-    def self.find_by_credentials(email, password)
-        user = User.find_by(email: email)
+    def self.find_by_credentials(username, password)
+        user = User.find_by(username: username)
         return nil if user.nil?
         user.is_password?(password) ? user : nil
     end

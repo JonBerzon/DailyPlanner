@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
     
     def index
         @users = User.all 
@@ -14,7 +16,8 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             login!(@user)
-            render :show 
+            # render :show 
+            render json: ['It worked']
         else
             render json: @user.errors.full_messages, status: 401
         end
@@ -32,7 +35,7 @@ class Api::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:email, :password, :bio, :fname, :lname)
+        params.require(:user).permit(:username, :password)
     end
 
 
