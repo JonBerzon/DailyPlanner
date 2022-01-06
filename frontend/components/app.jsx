@@ -14,8 +14,9 @@ const darkTheme = createTheme({
 function App(){
     return(
         <div>
-            {/* <CssBaseline/> */}
+            
             <ThemeProvider theme={darkTheme}>
+                <CssBaseline />
                 <Container>
                     <Session />
                 </Container>
