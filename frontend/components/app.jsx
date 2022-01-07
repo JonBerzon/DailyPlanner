@@ -1,5 +1,6 @@
 import React from "react";
 import Session from "./session/session";
+import Footer from "./footer";
 import { CssBaseline } from "@mui/material";
 import { Container } from "@mui/material";
 import {ThemeProvider, createTheme } from "@mui/material"
@@ -20,6 +21,7 @@ function App(){
                 <Container>
                     <Session />
                 </Container>
+                <Footer />
 
             </ThemeProvider>
             
